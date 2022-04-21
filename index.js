@@ -8,4 +8,29 @@ const downText = document.getElementById('value-2')
 
 // mouse 
 
+class Calculator {
+    constructor(upText , downText) {
+        this.downText = downText
+        this.upText = upText
+        this.valueDown = ''
+        this.valueUp = ''
+        this.operator = undefined
+    }
+    addNumber(num){
+    this.valueDown = this.valueDown + num
+    }
+    printDisplay(){
+        this.downText.innerText = this.valueDown
+    }
 
+    
+}
+
+const calculator = new Calculator (upText , downText)
+
+buttonNumber.forEach(button => {
+    button.addEventListener('click',() =>{
+        calculator.addNumber(button.innerText)
+        calculator.printDisplay()
+    })
+})
