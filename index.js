@@ -14,16 +14,73 @@ class Calculator {
         this.upText = upText
         this.valueDown = ''
         this.valueUp = ''
-        this.operator = undefined
+        this.op = undefined
     }
     addNumber(num){
+    if (num === ',' && this.valueDown.includes(',')) return
     this.valueDown = this.valueDown + num
+
     }
     printDisplay(){
         this.downText.innerText = this.valueDown
+        this.upText.innerText = this.valueUp
     }
 
-    
+    delete(){
+        this.valueDown = this.valueDown.slice(0,-1)
+    }
+
+    operator(op){
+        if (this.valueDown == '') return
+        if (this.valueUp != '') {
+            this.doCalculation()
+        }
+    this.op = op
+    this.valueUp = this.valueDown
+    this.valueDown = ""
+    }
+
+    allClear(){
+        this.valueDown = ''
+        this.valueUp = ''
+        this.op = ''
+    }
+
+doCalculation(){
+    let result
+    let convertUpValue = parseFloat(this.valueUp)
+    let convertDownValue = parseFloat(this.valueDown)
+    if (isNaN(convertUpValue) || isNaN(convertDownValue))return 
+    switch (this.op){
+        case '+':
+            result= convertUpValue + convertDownValue
+        break;
+
+        case '-':
+            result= convertUpValue - convertDownValue
+        break;
+
+        case '*': 
+            result= convertUpValue * convertDownValue
+        break;
+
+        case '/':
+            result= convertUpValue / convertDownValue
+        break;
+
+        case '%':
+            result= (convertUpValue * convertDownValue) / 100
+        break
+        default: return;
+    }
+
+    this.valueDown = result
+    this.op = undefined 
+    this.valueUp= ''
+
+}
+
+
 }
 
 const calculator = new Calculator (upText , downText)
@@ -34,3 +91,37 @@ buttonNumber.forEach(button => {
         calculator.printDisplay()
     })
 })
+
+buttonDelete.addEventListener('click', () =>{
+        calculator.delete()
+        calculator.printDisplay()
+    }
+)
+
+buttonOperator.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.operator(button.innerText)
+        calculator.printDisplay()
+    })
+    }
+)
+
+
+buttonEqual.addEventListener('click',() =>{
+    calculator.doCalculation()
+    calculator.printDisplay()
+
+} )
+
+
+buttonAllClear.addEventListener('click',() =>{
+    calculator.allClear()
+    calculator.printDisplay()
+
+} )
+
+
+// TO DO 
+// applly visual efect key
+// using the keysnmbers 
+// percent 
