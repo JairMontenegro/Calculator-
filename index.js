@@ -121,7 +121,29 @@ buttonAllClear.addEventListener('click',() =>{
 } )
 
 
-// TO DO 
-// applly visual efect key
-// using the keysnmbers 
-// percent 
+
+
+
+// keywords 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// * TO DO 
+// -applly visual efect key
+// -using the keysnmbers 
+//-percent 

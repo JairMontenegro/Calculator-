@@ -83,3 +83,34 @@ button.item-operator{
 .item2{
   border-bottom-right-radius: 10px;
 }
+
+
+.container_media{
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+margin-top: 2rem;
+padding: 15px;
+background-color: #1C1C1C;
+gap: 15px;
+
+}
+.container_media p{
+  font-size: 1.2rem;
+  color:  #fff ;
+}
+.container_media a{
+  text-decoration: none;
+  color: #fff;
+} 
+
+.container_media ul{
+  display:flex;
+  gap: 15px;
+}
+
+.container_media li{
+  list-style: none;
+
+}
